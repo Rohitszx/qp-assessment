@@ -1,0 +1,12 @@
+
+node_modules/
+.npm
+.yarn
+.yarn/cache
+.env
+.env.*.local
+.next/
+build/
+dist/
+*.tsbuildinfo
+
