@@ -49,4 +49,77 @@ The application is built with **Node.js** and **TypeScript** and includes role-b
 
 2. **Install Dependencies**:
    Run npm install to install all the necessary Node.js dependencies.
-   `npm install`
+   ```bash
+   npm install```
+3. **Docker Setup** : This project uses Docker to containerize the application and the database (PostgreSQL).
+
+    Run the following command to start the Docker containers:
+      ```bash  docker-compose up```
+
+   This will pull the PostgreSQL Docker image and set up the database container.
+
+   Ensure that Docker Compose is running properly by checking the status of containers:
+  ``````bash docker ps```
+
+3. **Run the API**: After setting up the Docker containers, you can run the API locally:
+```bash
+npm run dev
+npm install
+```
+4. **Docker Setup**:
+```bash docker-compose up  ```
+   **Verify containers**:
+```bash docker ps ```
+  **Run the API**:
+```bash npm run dev ``` 
+### 5. Access the API
+
+API available at: http://localhost:3000
+Test endpoints using Postman or any HTTP client
+
+## API Endpoints
+
+**Admin Routes**
+
+Add Grocery Item: `POST /api/admin/groceries`
+Get All Grocery Items: `GET /api/admin/groceries`
+Update Grocery Item: `PUT /api/admin/groceries/:id`
+Delete Grocery Item: `DELETE /api/admin/groceries/:id`
+
+**User Routes** 
+
+Get All Grocery Items: `GET /api/user/groceries`
+Place an Order: `POST /api/user/order`
+
+**Authentication Routes**
+
+Signup: `POST /api/auth/signup`
+Login: `POST /api/auth/login`
+
+### Database Configuration
+
+## Database Setup
+**Environment Variables** :
+```bash
+DB_HOST: Database hostname (default: localhost)
+DB_PORT: Database port (default: 5432)
+DB_USER: Database username (default: postgres)
+DB_PASSWORD: Database password (default: password)
+DB_NAME: Database name (default: grocery_db)
+```
+
+
+### Docker Commands:
+  - Build and start containers:
+      ``` docker-compose up --build ```
+  - Stop and remove containers:
+      ``` docker-compose down ```
+
+### Technologies Used
+```bash
+Node.js: Backend runtime
+Express: Web framework for routing
+TypeScript: Type safety and improved development
+PostgreSQL: Relational database
+Docker: Containerization platform
+```
