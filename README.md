@@ -84,23 +84,104 @@ npm run dev
 API available at: http://localhost:3000
 Test endpoints using Postman or any HTTP client
 
-7. **API Endpoints**
+## API Endpoints
 
-- Admin Routes
-Add Grocery Item: `POST /api/admin/groceries` \
-Get All Grocery Items: `GET /api/admin/groceries` \
-Update Grocery Item: `PUT /api/admin/groceries/:id` \
-Delete Grocery Item: `DELETE /api/admin/groceries/:id` 
+### Admin Routes:
 
-**User Routes** 
+1. **Add Grocery Item**: `POST /api/admin/groceries`
+   - **Request Body**:
+     ```json
+     {
+       "name": "string",  // Name of the grocery item
+       "price": "number",  // Price of the grocery item
+       "stock": "number"  // Available stock for the grocery item
+     }
+     ```
+   - **Response**:
+     - `201 Created`: If the item was successfully added.
 
-Get All Grocery Items: `GET /api/user/groceries` \
-Place an Order: `POST /api/user/order`
+2. **Get All Grocery Items**: `GET /api/admin/groceries`
+   - **Query Parameters**:
+     - `page`: (optional) The page number for pagination (default: 1).
+     - `limit`: (optional) Number of items per page (default: 10).
+   - **Response**:
+     - `200 OK`: List of grocery items.
 
-**Authentication Routes**
+3. **Update Grocery Item**: `PUT /api/admin/groceries/:id`
+   - **Request Parameters**:
+     - `id`: The ID of the grocery item to update (path parameter).
+   - **Request Body**:
+     ```json
+     {
+       "name": "string",  // Name of the grocery item (optional)
+       "price": "number",  // Price of the grocery item (optional)
+       "stock": "number"  // Available stock for the grocery item (optional)
+     }
+     ```
+   - **Response**:
+     - `200 OK`: If the item was successfully updated.
+     - `404 Not Found`: If the item with the provided ID does not exist.
 
-Signup: `POST /api/auth/signup` \
-Login: `POST /api/auth/login`
+4. **Delete Grocery Item**: `DELETE /api/admin/groceries/:id`
+   - **Request Parameters**:
+     - `id`: The ID of the grocery item to delete (path parameter).
+   - **Response**:
+     - `200 OK`: If the item was successfully deleted.
+     - `404 Not Found`: If the item with the provided ID does not exist.
+
+### User Routes:
+
+1. **Get All Grocery Items**: `GET /api/user/groceries`
+   - **Query Parameters**:
+     - `page`: (optional) The page number for pagination (default: 1).
+     - `limit`: (optional) Number of items per page (default: 10).
+   - **Response**:
+     - `200 OK`: List of grocery items available to the user.
+
+2. **Place an Order**: `POST /api/user/order`
+   - **Request Body**:
+     ```json
+     {
+        "userId" : 2,
+        "items": [
+            {
+            "groceryItemId": "string",  // The ID of the grocery item
+            "quantity": "number"  // The quantity of the grocery item
+            }
+        ]
+     }
+     ```
+   - **Response**:
+     - `201 Created`: If the order was successfully placed.
+     - `400 Bad Request`: If the request body is malformed or missing required information.
+
+### Authentication Routes:
+
+1. **Signup**: `POST /api/auth/signup`
+   - **Request Body**:
+     ```json
+     {
+       "username": "string",  // The desired username
+       "email": "string",  // The email address
+       "password": "string"  // The password for the account
+     }
+     ```
+   - **Response**:
+     - `201 Created`: If the user was successfully registered.
+     - `400 Bad Request`: If any required fields are missing or invalid.
+
+2. **Login**: `POST /api/auth/login`
+   - **Request Body**:
+     ```json
+     {
+       "email": "string",  // The email address of the user
+       "password": "string"  // The password of the user
+     }
+     ```
+   - **Response**:
+     - `200 OK`: If the login is successful, returns a JWT token.
+     - `401 Unauthorized`: If the credentials are incorrect or missing.
+
 
 8. **Database Configuration**
 
