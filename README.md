@@ -50,53 +50,53 @@ The application is built with **Node.js** and **TypeScript** and includes role-b
 2. **Install Dependencies**:
    Run npm install to install all the necessary Node.js dependencies.
    ```bash
-   npm install```
+   npm install
 3. **Docker Setup** : This project uses Docker to containerize the application and the database (PostgreSQL).
 
     Run the following command to start the Docker containers:
-      ```bash  docker-compose up```
+      ```bash  docker-compose up 
 
    This will pull the PostgreSQL Docker image and set up the database container.
 
    Ensure that Docker Compose is running properly by checking the status of containers:
-  ``````bash docker ps```
+  ``bash docker ps
 
-3. **Run the API**: After setting up the Docker containers, you can run the API locally:
+4. **Run the API**: After setting up the Docker containers, you can run the API locally:
 ```bash
 npm run dev
 npm install
 ```
-4. **Docker Setup**:
-```bash docker-compose up  ```
-   **Verify containers**:
+5. **Docker Setup**:
+```bash docker-compose up ```
+  **Verify containers**:
 ```bash docker ps ```
   **Run the API**:
-```bash npm run dev ``` 
-### 5. Access the API
+```bash npm run dev ```
+6. Access the API
 
 API available at: http://localhost:3000
 Test endpoints using Postman or any HTTP client
 
-## API Endpoints
+7. API Endpoints
 
 **Admin Routes**
 
-Add Grocery Item: `POST /api/admin/groceries`
-Get All Grocery Items: `GET /api/admin/groceries`
-Update Grocery Item: `PUT /api/admin/groceries/:id`
-Delete Grocery Item: `DELETE /api/admin/groceries/:id`
+Add Grocery Item: ```POST /api/admin/groceries```
+Get All Grocery Items: ```GET /api/admin/groceries```
+Update Grocery Item: ```PUT /api/admin/groceries/:id```
+Delete Grocery Item: ```DELETE /api/admin/groceries/:id```
 
 **User Routes** 
 
-Get All Grocery Items: `GET /api/user/groceries`
-Place an Order: `POST /api/user/order`
+Get All Grocery Items: ```GET /api/user/groceries```
+Place an Order: ```POST /api/user/order```
 
 **Authentication Routes**
 
-Signup: `POST /api/auth/signup`
-Login: `POST /api/auth/login`
+Signup: ```POST /api/auth/signup```
+Login: ```POST /api/auth/login```
 
-### Database Configuration
+8. Database Configuration
 
 ## Database Setup
 **Environment Variables** :
@@ -109,13 +109,13 @@ DB_NAME: Database name (default: grocery_db)
 ```
 
 
-### Docker Commands:
+9. Docker Commands:
   - Build and start containers:
-      ``` docker-compose up --build ```
+      ``` docker-compose up --build 
   - Stop and remove containers:
-      ``` docker-compose down ```
+      ``` docker-compose down 
 
-### Technologies Used
+10. Technologies Used
 ```bash
 Node.js: Backend runtime
 Express: Web framework for routing
